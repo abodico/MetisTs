@@ -1,20 +1,30 @@
 import Image from "next/image";
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import check from "../../public/assets/check.svg";
 import exit from "../../public/assets/exit.svg";
 import { Card } from "./Ecosystem";
-const Popup = (
-  { image, title, gradient, completed, started, cImage }: Card,
-  pop: boolean,
-  setPop: Function
-): React.ReactNode => {
+interface card extends Card {
+  pop: number;
+  togglePop: (index: number) => void;
+}
+const Popup = ({
+  title,
+  completed,
+  started,
+  cImage,
+  pop,
+  togglePop,
+}: card): React.ReactNode => {
   return (
     <div
       className={`${
-        pop ? "block" : "hidden"
-      } bg-[rgba(0,0,0,0.6)] fixed z-10 top-0 left-0 w-full h-full px-5`}
+        pop > -1 ? "scale-100" : "scale-0"
+      } bg-[rgba(0,0,0,0.6)] fixed z-10 top-0 left-0 w-full h-full px-5 py-8 transition-transform duration-200 ease-linear`}
     >
-      <div className="lg:max-w-3xl max-w-full | px-8 pt-8 pb-10 | rounded-[20px] bg-[#313144] relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <div
+        className={`lg:max-w-3xl max-w-full | px-8 pt-8 pb-10 | rounded-[20px] bg-[#313144] relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+         transition-transform duration-200 ease-linear`}
+      >
         {/* header */}
         <div className="flex justify-between items-center">
           {/* status */}
@@ -47,10 +57,11 @@ const Popup = (
           {/* exit-icon */}
           <Image
             src={exit}
-            className="w-4 h-4"
+            className="w-4 h-4 cursor-pointer"
             alt="exit"
             width={16}
             height={16}
+            onClick={() => togglePop(-1)}
           />
         </div>
         {/* img & info */}

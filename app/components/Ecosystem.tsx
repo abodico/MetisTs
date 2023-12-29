@@ -17,8 +17,8 @@ export interface Card {
   cImage: string;
   title: string;
   gradient: string;
-  started: boolean;
-  completed: boolean;
+  started: Boolean;
+  completed: Boolean;
 }
 const Ecosystem = (): React.ReactNode => {
   const cards: Card[] = [
@@ -79,7 +79,8 @@ const Ecosystem = (): React.ReactNode => {
       cImage: TethysPopup,
     },
   ];
-  const [pop, setPop] = useState<Boolean>(false);
+  const [pop, setPop] = useState<number>(-1);
+  const togglePop = (index: number) => setPop(index);
   return (
     <div className="container | lg:pb-36 pb-24 ">
       <h2 className="text-white | lg:text-[46px] text-[36px] | font-bold text-center | lg:pt-[111px] pt-20">
@@ -88,8 +89,9 @@ const Ecosystem = (): React.ReactNode => {
       <div className="flex flex-wrap gap-5 | lg:mt-[87px] mt-7">
         {cards.map((item, index) => (
           <div
+            onClick={() => setPop(index)}
             key={index}
-            className={`${item.gradient} overflow-hidden | lg:w-[calc(50%-10px)] w-full | lg:h-[140px] h-28  | rounded-[30px] flex items-center relative`}
+            className={`${item.gradient} overflow-hidden | lg:w-[calc(50%-10px)] w-full | lg:h-[140px] h-28  | rounded-[30px] flex items-center relative cursor-pointer`}
           >
             {/* text */}
             <div className="lg:ml-10 ml-9">
@@ -137,7 +139,8 @@ const Ecosystem = (): React.ReactNode => {
           </div>
         ))}
       </div>
-      {/* <Popup {...cards[1]} pop={pop} setPop={setPop} /> */}
+
+      <Popup {...cards[1]} togglePop={togglePop} pop={pop} />
     </div>
   );
 };
