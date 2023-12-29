@@ -4,7 +4,7 @@ import token2 from "../../public/assets/tokens 2.png";
 import token3 from "../../public/assets/tokens 3.png";
 import rightArrow from "../../public/assets/Group 33.svg";
 import Image from "next/image";
-const Hero = () => {
+const Hero = (): React.ReactNode => {
   return (
     <div className="lg:pb-[100px] pb-20 | container">
       <SimpleSlider />

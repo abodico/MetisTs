@@ -3,9 +3,10 @@ import Hero from "./components/Hero";
 import Ecosystem from "./components/Ecosystem";
 import SeasonTwo from "./components/SeasonTwo";
 import Footer from "./components/Footer";
-export default function Home() {
+import React from "react";
+export default function Home(): React.ReactNode {
   return (
-    <div className="bg-dark overflow-hidden ">
+    <div className="bg-dark overflow-hidden relative ">
       <Header />
       <Hero />
       <div className="bg-light">

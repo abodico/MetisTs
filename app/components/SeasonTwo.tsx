@@ -2,7 +2,7 @@ import React from "react";
 import rightArrowB from "../../public/assets/Group 33b.svg";
 import Image from "next/image";
 import twitter from "../../public/assets/Union.svg";
-const SeasonTwo = () => {
+const SeasonTwo = (): React.ReactNode => {
   return (
     <div className="lg:pt-[117px] pt-24 | lg:pb-[104px] pb-48 | container">
       {/* white-card */}

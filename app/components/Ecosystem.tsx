@@ -9,49 +9,73 @@ import netswap from "../../public/assets/netswap.svg";
 import rightArrow from "../../public/assets/Group 33.svg";
 import check from "../../public/assets/check.svg";
 import Image from "next/image";
-const Ecosystem = () => {
-  const cards = [
+import Popup from "./Popup";
+import TethysPopup from "../../public/assets/tethysPopup.svg";
+export interface Card {
+  image: string;
+  cImage: string;
+  title: string;
+  gradient: string;
+  started: boolean;
+  completed: boolean;
+}
+const Ecosystem = (): React.ReactNode => {
+  const cards: Card[] = [
     {
       image: tethys,
       title: "Tethys",
       gradient: "bg-gradient-tethys",
       completed: false,
+      started: true,
+      cImage: TethysPopup,
     },
     {
       image: unidex,
       title: "Unidex",
       gradient: "bg-gradient-unidex",
       completed: true,
+      started: true,
+      cImage: TethysPopup,
     },
     {
       image: maia,
       title: "Maia",
       gradient: "bg-gradient-maia",
       completed: false,
+      started: false,
+      cImage: TethysPopup,
     },
     {
       image: netswap,
       title: "Netswap",
       gradient: "bg-gradient-netswap",
       completed: false,
+      started: false,
+      cImage: TethysPopup,
     },
     {
       image: hummus,
       title: "Hummus",
       gradient: "bg-gradient-hummus",
       completed: false,
+      started: false,
+      cImage: TethysPopup,
     },
     {
       image: midas,
       title: "Midas",
       gradient: "bg-gradient-midas",
       completed: false,
+      started: false,
+      cImage: TethysPopup,
     },
     {
       image: league,
       title: "League Tech",
       gradient: "bg-gradient-league",
       completed: false,
+      started: false,
+      cImage: TethysPopup,
     },
   ];
   return (
@@ -99,9 +123,19 @@ const Ecosystem = () => {
                 />
               </div>
             </div>
+            {/* if-started-overlay */}
+            <div
+              className={`${
+                item.completed ? "hidden" : item.started ? "block" : "hidden"
+              } px-4 py-2 bg-[#00D2FF] w-fit absolute top-5 right-5 rounded-[50px] flex items-center gap-1.5`}
+            >
+              <p className="text-sm font-semibold ">IN PROGRESS</p>
+              <div className="w-4 h-4 rounded-full border-2 border-black border-r-transparent relative -rotate-45"></div>
+            </div>
           </div>
         ))}
       </div>
+      <Popup {...cards[1]} />
     </div>
   );
 };

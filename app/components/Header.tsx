@@ -6,8 +6,9 @@ import img176 from "../../public/assets/image 176.png";
 import upArrow from "../../public/assets/vector 96.svg";
 import arrow from "../../public/assets/Vector 94.svg";
 import mobileLogo from "../../public/assets/mobileLogo.svg";
-const Header = () => {
-  const list = "Developer Ecosystem Governance Company Bridge More".split(" ");
+const Header = (): React.ReactNode => {
+  const list: string[] =
+    "Developer Ecosystem Governance Company Bridge More".split(" ");
   return (
     <div className="flex items-center justify-between xl:px-[45px]  p-3 lg:py-5  ">
       {/* logo */}

@@ -8,8 +8,12 @@ import youtube from "../../public/assets/you.svg";
 import git from "../../public/assets/github.svg";
 import med from "../../public/assets/medium.svg";
 import Link from "next/link";
-const Footer = () => {
-  const icons = [
+const Footer = (): React.ReactNode => {
+  interface Icon {
+    icon: string;
+    link: string;
+  }
+  const icons: Icon[] = [
     {
       icon: twi,
       link: "",
@@ -35,7 +39,7 @@ const Footer = () => {
       link: "",
     },
   ];
-  const list1 = [
+  const list1: string[] = [
     "Platform",
     "Knowledge",
     "Carrers",
@@ -43,7 +47,7 @@ const Footer = () => {
     "Subscribe",
     "Brand Assets",
   ];
-  const list2 = [
+  const list2: string[] = [
     "Community",
     "Company",
     "Ecosystem",
