@@ -16,69 +16,85 @@ export interface Card {
   image: string;
   cImage: string;
   title: string;
+  video: string;
+  poster: string;
   gradient: string;
   started: Boolean;
   completed: Boolean;
 }
+const cards: Card[] = [
+  {
+    image: tethys,
+    title: "Tethys",
+    gradient: "bg-gradient-tethys",
+    completed: false,
+    started: true,
+    cImage: TethysPopup,
+    poster: "https://assets.codepen.io/6093409/river.jpg",
+    video: "https://assets.codepen.io/6093409/river.mp4",
+  },
+  {
+    image: unidex,
+    title: "Unidex",
+    gradient: "bg-gradient-unidex",
+    completed: true,
+    started: true,
+    cImage: TethysPopup,
+    poster: "https://assets.codepen.io/6093409/river.jpg",
+    video: "",
+  },
+  {
+    image: maia,
+    title: "Maia",
+    gradient: "bg-gradient-maia",
+    completed: false,
+    started: false,
+    cImage: TethysPopup,
+    poster: "https://assets.codepen.io/6093409/river.jpg",
+    video: "https://assets.codepen.io/6093409/river.mp4",
+  },
+  {
+    image: netswap,
+    title: "Netswap",
+    gradient: "bg-gradient-netswap",
+    completed: false,
+    started: false,
+    cImage: TethysPopup,
+    poster: "https://assets.codepen.io/6093409/river.jpg",
+    video: "https://assets.codepen.io/6093409/river.mp4",
+  },
+  {
+    image: hummus,
+    title: "Hummus",
+    gradient: "bg-gradient-hummus",
+    completed: false,
+    started: false,
+    cImage: TethysPopup,
+    poster: "https://assets.codepen.io/6093409/river.jpg",
+    video: " ",
+  },
+  {
+    image: midas,
+    title: "Midas",
+    gradient: "bg-gradient-midas",
+    completed: false,
+    started: false,
+    cImage: TethysPopup,
+    poster: "https://assets.codepen.io/6093409/river.jpg",
+    video: "https://assets.codepen.io/6093409/river.mp4",
+  },
+  {
+    image: league,
+    title: "League Tech",
+    gradient: "bg-gradient-league",
+    completed: false,
+    started: false,
+    cImage: TethysPopup,
+    poster: "https://assets.codepen.io/6093409/river.jpg",
+    video: " ",
+  },
+];
 const Ecosystem = (): React.ReactNode => {
-  const cards: Card[] = [
-    {
-      image: tethys,
-      title: "Tethys",
-      gradient: "bg-gradient-tethys",
-      completed: false,
-      started: true,
-      cImage: TethysPopup,
-    },
-    {
-      image: unidex,
-      title: "Unidex",
-      gradient: "bg-gradient-unidex",
-      completed: true,
-      started: true,
-      cImage: TethysPopup,
-    },
-    {
-      image: maia,
-      title: "Maia",
-      gradient: "bg-gradient-maia",
-      completed: false,
-      started: false,
-      cImage: TethysPopup,
-    },
-    {
-      image: netswap,
-      title: "Netswap",
-      gradient: "bg-gradient-netswap",
-      completed: false,
-      started: false,
-      cImage: TethysPopup,
-    },
-    {
-      image: hummus,
-      title: "Hummus",
-      gradient: "bg-gradient-hummus",
-      completed: false,
-      started: false,
-      cImage: TethysPopup,
-    },
-    {
-      image: midas,
-      title: "Midas",
-      gradient: "bg-gradient-midas",
-      completed: false,
-      started: false,
-      cImage: TethysPopup,
-    },
-    {
-      image: league,
-      title: "League Tech",
-      gradient: "bg-gradient-league",
-      completed: false,
-      started: false,
-      cImage: TethysPopup,
-    },
-  ];
   const [pop, setPop] = useState<number>(-1);
   const togglePop = (index: number) => setPop(index);
   return (
@@ -140,7 +156,7 @@ const Ecosystem = (): React.ReactNode => {
         ))}
       </div>
 
-      <Popup {...cards[1]} togglePop={togglePop} pop={pop} />
+      <Popup {...cards[pop]} togglePop={togglePop} pop={pop} />
     </div>
   );
 };

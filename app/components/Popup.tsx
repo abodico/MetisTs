@@ -1,5 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
+"use client";
 import Image from "next/image";
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import check from "../../public/assets/check.svg";
 import exit from "../../public/assets/exit.svg";
 import { Card } from "./Ecosystem";
@@ -12,18 +14,21 @@ const Popup = ({
   completed,
   started,
   cImage,
+  video,
+  poster,
   pop,
   togglePop,
 }: card): React.ReactNode => {
+  const [clicked, setClicked] = useState<boolean>(false);
   return (
     <div
       className={`${
-        pop > -1 ? "scale-100" : "scale-0"
-      } bg-[rgba(0,0,0,0.6)] fixed z-10 top-0 left-0 w-full h-full px-5 py-8 transition-transform duration-200 ease-linear`}
+        pop > -1 && !clicked ? "scale-100" : "scale-0"
+      } bg-[rgba(0,0,0,0.6)] fixed z-10 top-0 left-0 w-full h-full px-5 py-8 transition-transform duration-150 ease-linear`}
     >
       <div
         className={`lg:max-w-3xl max-w-full | px-8 pt-8 pb-10 | rounded-[20px] bg-[#313144] relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
-         transition-transform duration-200 ease-linear`}
+         transition-transform duration-150 ease-linear`}
       >
         {/* header */}
         <div className="flex justify-between items-center">
@@ -61,7 +66,13 @@ const Popup = ({
             alt="exit"
             width={16}
             height={16}
-            onClick={() => togglePop(-1)}
+            onClick={() => {
+              setClicked(true);
+              setTimeout(() => {
+                togglePop(-1);
+                setClicked(false);
+              }, 300);
+            }}
           />
         </div>
         {/* img & info */}
@@ -78,7 +89,27 @@ const Popup = ({
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.
         </p>
-        <div className="lg:w-[550px] w-[340px] | lg:h-[310px] h-[194px] | max-w-full rounded-[20px] bg-black mx-auto mt-5 "></div>
+        <div
+          className={`lg:w-[550px] w-[340px] | lg:h-[310px] h-[194px] | max-w-full overflow-hidden rounded-[20px] bg-black mx-auto relative mt-5 ${
+            !clicked && pop === -1 ? "hidden" : "block"
+          }`}
+        >
+          <video
+            poster={poster}
+            loop
+            autoPlay
+            className="object-cover relative w-full h-full"
+          >
+            <source src={video} type="video/mp4" />
+          </video>
+          <img
+            src={poster}
+            className="absolute top-0 left-0 w-full h-full -z-10"
+            alt="poster"
+            width={1000}
+            height={1000}
+          />
+        </div>
         <button
           type="button"
           className="bg-black rounded-[50px] text-white font-semibold text-lg mx-auto w-64 h-12 mt-5 block"
