@@ -3,16 +3,17 @@ import React from "react";
 import check from "../../public/assets/check.svg";
 import exit from "../../public/assets/exit.svg";
 import { Card } from "./Ecosystem";
-const Popup = ({
-  image,
-  title,
-  gradient,
-  completed,
-  started,
-  cImage,
-}: Card): React.ReactNode => {
+const Popup = (
+  { image, title, gradient, completed, started, cImage }: Card,
+  pop: boolean,
+  setPop: Function
+): React.ReactNode => {
   return (
-    <div className="bg-[rgba(0,0,0,0.6)] fixed z-10 top-0 left-0 w-full h-full px-5">
+    <div
+      className={`${
+        pop ? "block" : "hidden"
+      } bg-[rgba(0,0,0,0.6)] fixed z-10 top-0 left-0 w-full h-full px-5`}
+    >
       <div className="lg:max-w-3xl max-w-full | px-8 pt-8 pb-10 | rounded-[20px] bg-[#313144] relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         {/* header */}
         <div className="flex justify-between items-center">

@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import unidex from "../../public/assets/unidex.svg";
 import league from "../../public/assets/vector.svg";
 import maia from "../../public/assets/MaiaDao2.svg";
@@ -78,6 +79,7 @@ const Ecosystem = (): React.ReactNode => {
       cImage: TethysPopup,
     },
   ];
+  const [pop, setPop] = useState<Boolean>(false);
   return (
     <div className="container | lg:pb-36 pb-24 ">
       <h2 className="text-white | lg:text-[46px] text-[36px] | font-bold text-center | lg:pt-[111px] pt-20">
@@ -135,7 +137,7 @@ const Ecosystem = (): React.ReactNode => {
           </div>
         ))}
       </div>
-      <Popup {...cards[1]} />
+      {/* <Popup {...cards[1]} pop={pop} setPop={setPop} /> */}
     </div>
   );
 };
