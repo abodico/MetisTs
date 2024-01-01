@@ -202,7 +202,6 @@ const Ecosystem = (): React.ReactNode => {
           </div>
         ))}
       </div>
-
       <Popup {...cards[pop]} togglePop={togglePop} pop={pop} />
     </div>
   );

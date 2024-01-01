@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import Image from "next/image";
-import React, { Dispatch, SetStateAction, useState } from "react";
+import React, { useState } from "react";
 import check from "../../public/assets/check.svg";
 import exit from "../../public/assets/exit.svg";
 import { Card } from "./Ecosystem";
@@ -28,7 +28,8 @@ const Popup = ({
       } bg-[rgba(0,0,0,0.6)] fixed z-10 top-0 left-0 w-full h-full box-border px-5 py-8 transition-transform duration-150 ease-linear`}
     >
       <div
-        className={`max-h-full | lg:max-w-3xl max-w-full | lg:px-6 px-8 | pt-8 pb-10 | rounded-[20px] bg-[#313144] relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+        id="popup"
+        className={`max-h-full | lg:max-w-3xl max-w-full | lg:px-6 px-8 | pt-8 pb-10 | rounded-[20px] bg-[#313144] overflow-y-scroll relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
          transition-transform duration-150 ease-linear`}
       >
         {/* header */}
