@@ -12,6 +12,16 @@ import check from "../../public/assets/check.svg";
 import Image from "next/image";
 import Popup from "./Popup";
 import TethysPopup from "../../public/assets/tethysPopup.svg";
+import UnidexPopup from "../../public/assets/UnidexPopup.svg";
+import midasPopup from "../../public/assets/midasPopup.svg";
+import HummusPopup from "../../public/assets/Group 31.svg";
+import MaiaDaoPopup from "../../public/assets/Maia Dao.svg";
+import NetswapPopup from "../../public/assets/NetswapPopup.svg";
+import leaguePopup from "../../public/assets/league tech.svg";
+interface Step {
+  step: string;
+  completed: boolean;
+}
 export interface Card {
   image: string;
   cImage: string;
@@ -21,6 +31,7 @@ export interface Card {
   gradient: string;
   started: Boolean;
   completed: Boolean;
+  steps: Step[];
 }
 const cards: Card[] = [
   {
@@ -29,6 +40,11 @@ const cards: Card[] = [
     gradient: "bg-gradient-tethys",
     completed: false,
     started: true,
+    steps: [
+      { step: "Swap at least 1 Metis token", completed: true },
+      { step: "Add Liquidity", completed: true },
+      { step: "Long at least 0.5 Metis", completed: false },
+    ],
     cImage: TethysPopup,
     poster: "https://assets.codepen.io/6093409/river.jpg",
     video: "https://assets.codepen.io/6093409/river.mp4",
@@ -39,7 +55,12 @@ const cards: Card[] = [
     gradient: "bg-gradient-unidex",
     completed: true,
     started: true,
-    cImage: TethysPopup,
+    steps: [
+      { step: "Swap at least 1 Metis token", completed: true },
+      { step: "Add Liquidity", completed: true },
+      { step: "Long at least 0.5 Metis", completed: false },
+    ],
+    cImage: UnidexPopup,
     poster: "https://assets.codepen.io/6093409/river.jpg",
     video: "",
   },
@@ -48,8 +69,13 @@ const cards: Card[] = [
     title: "Maia",
     gradient: "bg-gradient-maia",
     completed: false,
-    started: false,
-    cImage: TethysPopup,
+    started: true,
+    steps: [
+      { step: "Swap at least 1 Metis token", completed: true },
+      { step: "Add Liquidity", completed: true },
+      { step: "Long at least 0.5 Metis", completed: false },
+    ],
+    cImage: MaiaDaoPopup,
     poster: "https://assets.codepen.io/6093409/river.jpg",
     video: "https://assets.codepen.io/6093409/river.mp4",
   },
@@ -58,8 +84,13 @@ const cards: Card[] = [
     title: "Netswap",
     gradient: "bg-gradient-netswap",
     completed: false,
-    started: false,
-    cImage: TethysPopup,
+    started: true,
+    steps: [
+      { step: "Swap at least 1 Metis token", completed: true },
+      { step: "Add Liquidity", completed: true },
+      { step: "Long at least 0.5 Metis", completed: false },
+    ],
+    cImage: NetswapPopup,
     poster: "https://assets.codepen.io/6093409/river.jpg",
     video: "https://assets.codepen.io/6093409/river.mp4",
   },
@@ -68,8 +99,13 @@ const cards: Card[] = [
     title: "Hummus",
     gradient: "bg-gradient-hummus",
     completed: false,
-    started: false,
-    cImage: TethysPopup,
+    started: true,
+    steps: [
+      { step: "Swap at least 1 Metis token", completed: true },
+      { step: "Add Liquidity", completed: true },
+      { step: "Long at least 0.5 Metis", completed: false },
+    ],
+    cImage: HummusPopup,
     poster: "https://assets.codepen.io/6093409/river.jpg",
     video: " ",
   },
@@ -78,8 +114,13 @@ const cards: Card[] = [
     title: "Midas",
     gradient: "bg-gradient-midas",
     completed: false,
-    started: false,
-    cImage: TethysPopup,
+    started: true,
+    steps: [
+      { step: "Swap at least 1 Metis token", completed: true },
+      { step: "Add Liquidity", completed: true },
+      { step: "Long at least 0.5 Metis", completed: false },
+    ],
+    cImage: midasPopup,
     poster: "https://assets.codepen.io/6093409/river.jpg",
     video: "https://assets.codepen.io/6093409/river.mp4",
   },
@@ -88,12 +129,18 @@ const cards: Card[] = [
     title: "League Tech",
     gradient: "bg-gradient-league",
     completed: false,
-    started: false,
-    cImage: TethysPopup,
+    started: true,
+    steps: [
+      { step: "Swap at least 1 Metis token", completed: true },
+      { step: "Add Liquidity", completed: true },
+      { step: "Long at least 0.5 Metis", completed: false },
+    ],
+    cImage: leaguePopup,
     poster: "https://assets.codepen.io/6093409/river.jpg",
     video: " ",
   },
 ];
+// box-shadow: 0px_0px_8px_0px_#FFFFFF80;
 const Ecosystem = (): React.ReactNode => {
   const [pop, setPop] = useState<number>(-1);
   const togglePop = (index: number) => setPop(index);
