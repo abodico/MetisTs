@@ -25,10 +25,10 @@ const Popup = ({
     <div
       className={`${
         pop > -1 && !clicked ? "scale-100" : "scale-0"
-      } bg-[rgba(0,0,0,0.6)] fixed z-10 top-0 left-0 w-full h-full box-border px-8 py-8 transition-transform duration-150 ease-linear`}
+      } bg-[rgba(0,0,0,0.6)] fixed z-10 top-0 left-0 w-full h-full box-border px-5 py-8 transition-transform duration-150 ease-linear`}
     >
       <div
-        className={`max-h-full | lg:max-w-3xl max-w-full | px-8 pt-8 pb-10 | rounded-[20px] bg-[#313144] relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+        className={`max-h-full | lg:max-w-3xl max-w-full | lg:px-6 px-8 | pt-8 pb-10 | rounded-[20px] bg-[#313144] relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
          transition-transform duration-150 ease-linear`}
       >
         {/* header */}
@@ -76,7 +76,7 @@ const Popup = ({
             }}
           />
         </div>
-        <div className="px-20">
+        <div className="lg:px-20">
           {/* img & info */}
           <Image
             src={cImage}
@@ -119,6 +119,7 @@ const Popup = ({
               steps ? "block" : "hidden"
             } mt-5 flex gap-[10px] items-center`}
           >
+            {/* balls */}
             <div className=" flex flex-col">
               {steps?.map((item, index) => (
                 <div key={index} className="flex flex-col items-center">
