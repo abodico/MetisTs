@@ -29,7 +29,7 @@ const Popup = ({
     >
       <div
         id="popup"
-        className={`max-h-full | lg:max-w-3xl max-w-full | lg:px-6 px-8 | pt-8 pb-10 | rounded-[20px] bg-[#313144] overflow-y-scroll relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+        className={`max-h-full | lg:max-w-3xl max-w-full | lg:px-6 px-8 | pt-8 pb-10 | rounded-[20px] bg-[#313144] overflow-y-auto relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
          transition-transform duration-150 ease-linear`}
       >
         {/* header */}
